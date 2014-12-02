@@ -164,6 +164,7 @@ sub show_and_cache {
     my $tocache = $line;
     $tocache =~ s/{(\d+)}[\t ]{1,2}/\n$1\t/g;
     $line =~ s/{(\d+)}/$1/g;
+    $line =~ s/^(\d+)/\033[1;37m$1\033[0m/;
     print $line;
     $tocache =~ s/\e\[\d*m//g;
     if ($untracked_in_columns) {
